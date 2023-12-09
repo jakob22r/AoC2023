@@ -19,13 +19,12 @@ def preprocess(line):
             break
     return retval
 
-
 def extrapolate(values):
     extp = 0 #Extrapolated val in each iteration
     for i in range(len(values)-2,-1,-1): #Iterate backwards to fill in extrapolated vals
-        increasing = (values[i])[-1] #End elem
-        #print(f"To the left {increasing}, below {extp}, sum {increasing + extp}")
-        extp = increasing + extp
+        increasing = (values[i])[0] #first elem
+        #print(f"To the right {increasing}, below {extp}, sum {increasing - extp}")
+        extp = increasing - extp
     return extp 
 
 input = open(sys.argv[1]).read().strip()
